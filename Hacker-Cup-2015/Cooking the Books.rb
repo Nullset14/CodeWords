@@ -2,10 +2,23 @@
 # Solution: https://www.facebook.com/notes/1043281905687710/
 # ruby ~/Cooking\ the\ Books.rb < ~/cooking_the_books.txt
 #
+
+max = proc {|numbers, n| numbers.max}
+@min = proc {|numbers, n| numbers.min}
+min = proc {|numbers, n|
+  minimum = @min.call(numbers - ['0'], n)
+  raise 'MinimumError' if n[0] == minimum
+  minimum
+}
+
 def cook_the_book(n, &block)
   return n if (n == '0' || n == '')
   numbers = n.split('')
-  value = block.call(numbers, n)
+  begin
+    value = block.call(numbers, n)
+  rescue
+    return (n[0] + cook_the_book(n[1..-1], &@min))
+  end
   if n[0] == value
     return (value + cook_the_book(n[1..-1], &block))
   else
@@ -16,23 +29,10 @@ def cook_the_book(n, &block)
   n
 end
 
-max = Proc.new {|numbers, n| numbers.max}
-
-min = lambda {|numbers, n|
-  minimum = numbers.min
-  if @iter.nil?
-    @iter = false
-    return (n[0] + cook_the_book(n[1..-1], &min)) if n[0] == '1'
-    minimum = (numbers - ['0']).min if minimum == '0'
-  end
-  minimum
-}
-
 $stdout.reopen('output.txt', 'w')
 
 STDIN.each_with_index do |line, idx|
   next if idx == 0
   n = line.chomp
-  @iter = nil
   print "Case ##{idx}: #{cook_the_book(n.dup, &min)} #{cook_the_book(n.dup, &max)}\n"
 end
