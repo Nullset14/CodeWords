@@ -13,13 +13,13 @@ class Pascal
   def tree
     n = @degree
     (0..n).each do |k|
-      if k == 0
-        @prev_row = [1]
-      elsif k == 1
-        @prev_row = [1, 1]
-      else
-        self.cal_row(k)
-      end
+      @prev_row = if k == 0
+                    @prev_row = [1]
+                  elsif k == 1
+                    [1, 1]
+                  else
+                    self.cal_row(k)
+                  end
       printf (" " * (@width/2 * (@degree - k)))
       @prev_row.each { |x| printf("%-#{@width}s", x) }
       printf ("\n")
@@ -38,5 +38,5 @@ class Pascal
              (@prev_row[k] + @prev_row[k-1])
            end
     end
-    @prev_row = f.concat(f[0, (n+1)/2].reverse)
+    f.concat(f[0, (n+1)/2].reverse)
   end
