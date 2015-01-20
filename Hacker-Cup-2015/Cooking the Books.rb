@@ -16,7 +16,8 @@ def cook_the_book(n, &block)
   numbers = n.split('')
   begin
     value = block.call(numbers, n)
-  rescue
+  rescue => e
+    raise e if e.message != 'MinimumError'
     return (n[0] + cook_the_book(n[1..-1], &@min))
   end
   if n[0] == value
