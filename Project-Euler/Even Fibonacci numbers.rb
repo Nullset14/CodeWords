@@ -2,7 +2,7 @@
 #
 evenFibonacciSum = 0
 consTerms = [1,1]
-while f[0] < 4_000_001
+while consTerms.first < 4_000_001
   evenFibonacciSum += consTerms.first if consTerms.first.even?
   consTerms = [consTerms.last, consTerms.inject(:+)]
 end
