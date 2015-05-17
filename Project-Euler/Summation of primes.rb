@@ -15,7 +15,7 @@ include Singleton
     @primes[n-1]
   end
 
- def each
+ def each_prime
    return self if !block_given?
    last_idx = 0
    loop {
@@ -48,3 +48,5 @@ include Singleton
     @last_checked = sieve_last
   end
 end
+
+sum = 0; EratosthenesSieve.instance.each_prime {|p| break if p >= 2_000_000; sum += p }
