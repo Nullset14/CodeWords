@@ -1,3 +1,5 @@
+# http://rubyquiz.com/quiz84.html
+
 # Pascal's triangle in Ruby.
 # Pascal's triangle is a triangular array of the binomial coefficients
 # Pascal.new(5).tree
