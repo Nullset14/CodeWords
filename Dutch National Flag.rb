@@ -23,5 +23,4 @@ def dutch_national_flag(min, max, numbers)
   end
 
   numbers
-
 end 
