@@ -56,18 +56,15 @@ class SegmentTree {
 
 	private Node findMaxSum(int rangeFrom, int rangeTo, Node currentNode) {
 		
-		System.out.println(String.format("Searching in range %d - %d. Current Node range %d - %d", rangeFrom, rangeTo, currentNode.rangeFrom, currentNode.rangeTo));
-		
 		if (currentNode.rangeFrom == rangeFrom && currentNode.rangeTo == rangeTo)
 			return currentNode;
-    // optimization to circumvent recursive calls
+    		// optimization to circumvent recursive calls
 		else if (currentNode.rangeTo - currentNode.rangeFrom == 1)
 			return (rangeTo == currentNode.rangeTo) ? currentNode.rightNode : currentNode.leftNode;
-    // optimization to circumvent recursive calls
+    		// optimization to circumvent recursive calls
 		else if (rangeTo == rangeFrom) {
 			Node temp = currentNode;
 			while (temp.rangeFrom != temp.rangeTo) {
-				System.out.println(String.format("Searching in range %d - %d", temp.rangeFrom, temp.rangeTo));	
 			  temp = (rangeFrom <= (temp.rangeFrom + temp.rangeTo)/2) ? temp.leftNode : temp.rightNode;				
 			}
 			return temp;
