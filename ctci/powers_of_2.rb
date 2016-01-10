@@ -1,4 +1,4 @@
-# Print powers of 2 less than or equal to the given number using recursion.
+# Print powers of 2 less than or equal to the given number using recursion
 #
 def powers_of_two(x)
   puts 1 or return 1 if x <= 1
