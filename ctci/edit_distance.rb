@@ -1,3 +1,4 @@
+# http://www.engr.uconn.edu/~ywu/Courses/CSE5095S13/editdistance.pdf
 class EditDistance
 
   attr_reader :x, :y, :word1, :word2
@@ -48,4 +49,4 @@ class EditDistance
 end
 
 # a = EditDistance.new("writers","vintner")
-# a.distance
+# a.distance # => 5
