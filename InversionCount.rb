@@ -34,7 +34,6 @@ module MergeSort
     end    
 end  
 
-
 # include MergeSort
 # sort IO.read("input.txt").scan(/\d+/).map!(&:to_i)
 # inversion_count
