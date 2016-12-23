@@ -1,7 +1,7 @@
 /*
-     You are given an array of stock prices representing the value of some stock over time.
-     Assuming that you are allowed to buy the stock exactly once and sell the stock exactly once,
-     what is the maximum profit you can make?
+  You are given an array of stock prices representing the value of some stock over time.
+  Assuming that you are allowed to buy the stock exactly once and sell the stock exactly once,
+  what is the maximum profit you can make?
 */
 
 import java.util.ArrayList;
