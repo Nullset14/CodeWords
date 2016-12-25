@@ -37,7 +37,6 @@ public class FlattenDictionary {
         return out;
     }
 
-
     public static void main(String[] args) {
         Map input = new HashMap();
         Map tempKey = new HashMap();
