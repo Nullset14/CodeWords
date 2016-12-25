@@ -62,5 +62,4 @@ public class FlattenDictionary {
         Map output = map.flatten(input);
         System.out.println(output);
     }
-
 }
