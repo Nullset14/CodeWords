@@ -3,7 +3,6 @@
 
     Input : {"Key1":"1","Key2":{"a":"2","b":"3","c":{"d":"3","e":"1","f":{"g":"4","h":"5"}}}}
     Output : {"Key1":"1","Key2.a":"2","Key2.b":"3","Key2.c.d":"3","Key2.c.e":"1","Key2.c.e.f.g":"4","Key2.c.e.f.h":"1"}
-
 */
 
 import java.util.Map;
@@ -59,7 +58,6 @@ public class FlattenDictionary {
         tempKey.put("h", "5");
 
         ((Map)((Map)input.get("Key2")).get("c")).put("f", tempKey);
-
 
         FlattenDictionary map = new FlattenDictionary();
         Map output = map.flatten(input);
