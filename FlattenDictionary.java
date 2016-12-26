@@ -1,6 +1,5 @@
 /*
-    Given a dictionary, write a function to flatten it
-
+    Given a dictionary, write a function to flatten it.
     Input : {"Key1":"1","Key2":{"a":"2","b":"3","c":{"d":"3","e":"1","f":{"g":"4","h":"5"}}}}
     Output : {"Key1":"1","Key2.a":"2","Key2.b":"3","Key2.c.d":"3","Key2.c.e":"1","Key2.c.e.f.g":"4","Key2.c.e.f.h":"1"}
 */
@@ -10,11 +9,11 @@ import java.util.HashMap;
 
 public class FlattenDictionary {
 
-    public Map flatten(Map in) {
+    public static Map flatten(Map in) {
        return flattenHelper("", in, new HashMap());
     }
 
-    public Map flattenHelper(Object prefix, Map in, Map out) {
+    public static Map flattenHelper(Object prefix, Map in, Map out) {
         if (in == null)
             return out;
 
@@ -58,8 +57,7 @@ public class FlattenDictionary {
 
         ((Map)((Map)input.get("Key2")).get("c")).put("f", tempKey);
 
-        FlattenDictionary map = new FlattenDictionary();
-        Map output = map.flatten(input);
+        Map output = FlattenDictionary.flatten(input);
         System.out.println(output);
     }
 }
